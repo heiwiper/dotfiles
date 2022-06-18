@@ -1,0 +1,24 @@
+;; -*- mode: lisp; mode: stumpwm -*-
+
+(in-package :stumpwm)
+
+(run-shell-command "sh ~/.xprofile")
+
+;; (run-shell-command "xmodmap -e 'clear mod4'")
+;; (run-shell-command "xmodmap -e \'keycode 133 = F20\'")
+;; (set-prefix-key (kbd "F20"))
+
+(defvar *my-media-keymap*
+  (let ((m (make-sparse-keymap)))
+    (define-key *top-map* (kbd "XF86AudioRaiseVolume")
+      "exec amixer -q sset Master 10%+")
+    (define-key *top-map* (kbd "XF86AudioLowerVolume")
+      "exec amixer -q sset Master 10%-")
+    (define-key *top-map* (kbd "XF86AudioMute")
+      "exec amixer -q sset Master 1+ toggle")
+    (define-key *top-map* (kbd "XF86AudioMicMute")
+      "exec amixer -q sset Capture 1+ toggle")
+    (define-key *top-map* (kbd "XF86MonBrightnessUp")
+      "exec light -A 10")
+    (define-key *top-map* (kbd "XF86MonBrightnessDown")
+      "exec light -U 10")))
