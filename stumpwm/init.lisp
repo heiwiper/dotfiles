@@ -6,9 +6,7 @@
 
 (run-shell-command "sh ~/.xprofile")
 
-;; (run-shell-command "xmodmap -e 'clear mod4'")
-;; (run-shell-command "xmodmap -e \'keycode 133 = F20\'")
-;; (set-prefix-key (kbd "F20"))
+(set-prefix-key (kbd "F20"))
 
 (defvar *my-media-keymap*
   (let ((m (make-sparse-keymap)))
