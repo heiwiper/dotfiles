@@ -2,6 +2,8 @@
 
 (in-package :stumpwm)
 
+(load-module "battery-portable")
+
 (run-shell-command "sh ~/.xprofile")
 
 ;; (run-shell-command "xmodmap -e 'clear mod4'")
@@ -22,3 +24,8 @@
       "exec light -A 10")
     (define-key *top-map* (kbd "XF86MonBrightnessDown")
       "exec light -U 10")))
+
+(mode-line)
+(setf stumpwm:*screen-mode-line-format*
+      (list "[%B] | [%n] | %w | "
+	    '(:eval (stumpwm:run-shell-command "date" t))))
