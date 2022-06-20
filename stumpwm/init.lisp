@@ -48,6 +48,7 @@
 ;; (push (cons "Job" (realname "~/Mail/Inbox/")) maildir:*maildir-alist*)
 
 (load-module "ttf-fonts")
+(xft:cache-fonts)
 (set-font (make-instance 'xft:font
 			  :family "Noto Sans Mono"
 			  :subfamily "Regular"

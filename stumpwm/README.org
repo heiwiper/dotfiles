@@ -95,11 +95,12 @@
 ** ttf-fonts
 #+begin_src lisp
   (load-module "ttf-fonts")
+  (xft:cache-fonts)
   (set-font (make-instance 'xft:font
-			    :family "Noto Sans Mono"
-			    :subfamily "Regular"
-			    :size 11
-			    :antialias t))
+			      :family "Noto Sans Mono"
+			      :subfamily "Regular"
+			      :size 11
+			      :antialias t))
 #+end_src
 
 ** disk
