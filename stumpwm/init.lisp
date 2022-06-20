@@ -2,8 +2,6 @@
 
 (in-package :stumpwm)
 
-(load-module "battery-portable")
-
 (run-shell-command "sh ~/.xprofile")
 
 (run-shell-command "flameshot &")
@@ -35,3 +33,25 @@
     (define-key *top-map* (kbd "XF86MonBrightnessDown")
       "exec light -U 10")))
 
+(load-module "stumptray")
+(stumptray::stumptray)
+
+(load-module "battery-portable")
+
+;; (load-module "maildir")
+;; (push (cons "Job" (realname "~/Mail/Inbox/")) maildir:*maildir-alist*)
+
+(load-module "ttf-fonts")
+(set-font (make-instance 'xft:font
+			  :family "Noto Sans Mono"
+			  :subfamily "Regular"
+			  :size 11
+			  :antialias t))
+
+(load-module "disk")
+(setf disk:*disk-modeline-fmt* "%a")
+
+(load-module "swm-gaps")
+(setf swm-gaps:*head-gaps-size* 0)
+(setf swm-gaps:*outer-gaps-size* 20)
+(setf swm-gaps:*inner-gaps-size* 5)
