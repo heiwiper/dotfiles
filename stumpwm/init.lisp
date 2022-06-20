@@ -6,6 +6,11 @@
 
 (run-shell-command "sh ~/.xprofile")
 
+(run-shell-command "flameshot &")
+(run-shell-command "nextcloud &")
+(run-shell-command "kdeconnect-indicator &")
+(run-shell-command "nm-applet &")
+(run-shell-command "blueman-applet &")
 (set-prefix-key (kbd "F20"))
 
 (defvar *my-media-keymap*
