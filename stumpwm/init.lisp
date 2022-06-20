@@ -11,6 +11,13 @@
 (run-shell-command "kdeconnect-indicator &")
 (run-shell-command "nm-applet &")
 (run-shell-command "blueman-applet &")
+
+(mode-line)
+(setf stumpwm:*window-format* "%m%n%s%c")
+(setf stumpwm:*screen-mode-line-format*
+	(list "[%B] -- [ %D] -- %w -- "
+	      '(:eval (stumpwm:run-shell-command "date" t))))
+
 (set-prefix-key (kbd "F20"))
 
 (defvar *my-media-keymap*
@@ -28,7 +35,3 @@
     (define-key *top-map* (kbd "XF86MonBrightnessDown")
       "exec light -U 10")))
 
-(mode-line)
-(setf stumpwm:*screen-mode-line-format*
-      (list "[%B] | [%n] | %w | "
-	    '(:eval (stumpwm:run-shell-command "date" t))))
