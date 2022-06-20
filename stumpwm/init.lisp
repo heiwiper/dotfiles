@@ -33,6 +33,12 @@
     (define-key *top-map* (kbd "XF86MonBrightnessDown")
       "exec light -U 10")))
 
+(defcommand suspend () ()
+  (run-shell-command "systemctl suspend"))
+
+(defcommand hibernate () ()
+  (run-shell-command "systemctl hibernate"))
+
 (load-module "stumptray")
 (stumptray::stumptray)
 
