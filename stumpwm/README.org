@@ -36,6 +36,64 @@
 #+end_src
 
 
+* Theme
+
+** Colors
+#+begin_src lisp
+  (defconstant +moe-black+ "#303030")
+  (defconstant +moe-gray+  "#6c6c6c")
+  (defconstant +moe-white+ "#c6c6c6")
+  (defconstant +moe-blue+ "#5fafd7")
+  (defconstant +moe-cyan+ "#00d7af")
+  (defconstant +moe-green+ "#a1db00")
+  (defconstant +moe-yellow+ "#c4a000")
+  (defconstant +moe-pink+ "#ffafd7")
+  (defconstant +moe-orange+ "#ff8700")
+  (defconstant +moe-red+ "#ff4b4b")
+  (setf *colors* (list +moe-black+
+		       ,+moe-red+
+		       ,+moe-green+
+		       ,+moe-yellow+
+		       ,+moe-blue+
+		       ,+moe-pink+
+		       ,+moe-cyan+
+		       ,+moe-white+
+		       ,+moe-gray+
+		       ,+moe-orange+))
+  (update-color-map (current-screen))
+#+end_src
+
+** Window
+#+begin_src lisp
+  (set-win-bg-color +moe-cyan+)
+  (set-focus-color +moe-orange+)
+  (set-unfocus-color +moe-gray+)
+  (set-float-focus-color +moe-cyan+)
+  (setf stumpwm:*maxsize-border-width* 2)
+  (setf stumpwm:*normal-border-width* 2)
+  (setf stumpwm:*window-border-style* ":thin")
+#+end_src
+
+** Message and input bar
+#+begin_src lisp
+  (set-fg-color +moe-white+)
+  (set-bg-color +moe-black+)
+  (set-border-color +moe-orange+)
+  (set-msg-border-width 1)
+  (setf *message-window-padding* 5)
+  (setf *message-window-y-padding* 2)
+  (setf *message-window-gravity* :top)
+  (setf *input-window-gravity* :top)
+  (setf *message-window-input-gravity* :center)
+#+end_src
+
+** Modeline
+#+begin_src lisp
+  (setf *mode-line-foreground-color* +moe-white+)
+  (setf *mode-line-background-color* +moe-gray+)
+  (setf *mode-line-border-color* +moe-gray+)
+#+end_src
+
 * Keys
 
 ** Prefix key
