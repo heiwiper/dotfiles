@@ -30,9 +30,36 @@
 #+begin_src lisp
   (mode-line)
   (setf stumpwm:*window-format* "%m%n%s%c")
+  (setf *time-modeline-string* "%A %d %b %H:%M")
+
   (setf stumpwm:*screen-mode-line-format*
-	  (list "[%B] -- [ %D] -- %w -- "
-		'(:eval (stumpwm:run-shell-command "date" t))))
+	(list "^(:bg \"#5fafd7\")"
+	      " %h "
+	      "^n"
+	      " ^f1❧^f0"
+	      "^(:fg \"#ff8700\")"
+	      "%w"
+	      "^(:>)^n"
+	      " ^f1☙^f0 "
+	      "^(:bg \"#4e4e4e\")^(:fg \"#ffafd7\")"
+	      " ^f1▣︎^f0 %C"
+	      "^(:bg \"#4e4e4e\")^(:fg \"#ff4ea3\")"
+	      "  ^f1⌸^f0%M "
+	      "^(:bg \"#a1db00\")^(:fg \"#4e4e4e\")"
+	      '(:eval (concat " ^f3৸^f0 "
+		       (string-right-trim '(#\Newline)
+			(run-shell-command "echo $(upower -d | grep --max-count=2 'percentage' | awk '{print $2}' | tr '\n' ' ')" t))
+		       " "))
+	      ;; " %B "
+	      "^(:bg \"#ffafd7\")^(:fg \"#4e4e4e\")"
+	      '(:eval (concat " ^f2♪^f0 "
+		       (string-right-trim '(#\Newline)
+			(run-shell-command "pamixer --get-volume" t))
+		       " "))
+	      "^(:bg \"#303030\")^(:fg \"#c4a000\")"
+	      " ^f1❦^f0 %d "
+	      "^n"
+	      " %T"))
 #+end_src
 
 
