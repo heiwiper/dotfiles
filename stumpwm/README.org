@@ -145,6 +145,28 @@
   (stumptray::stumptray)
 #+end_src
 
+** mem
+#+begin_src lisp
+  (load-module "mem")
+  (setf mem::*mem-modeline-fmt* " %a")
+#+end_src
+
+** cpu
+#+begin_src lisp
+  (load-module "cpu")
+  (setf cpu::*cpu-usage-modeline-fmt* "^[~A~1D%^]")
+  (setf cpu:*cpu-modeline-fmt* "%c")
+  (setf cpu::*cpu-temp-hi* 100)
+  (setf cpu::*cpu-temp-med* 100)
+  (setf cpu::*cpu-temp-crit* 100)
+#+end_src
+
+** hostname
+#+begin_src lisp
+  (load-module "hostname")
+#+end_src
+#+end_src
+
 ** battery-portable
 #+begin_src lisp
   (load-module "battery-portable")
